@@ -9,7 +9,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 import com.unity3d.player.UnityPlayer;
-import com.unity3d.player.UnityPlayerActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -74,8 +73,6 @@ public class IntermediateActivity extends Activity {
                 Log.d("THIS_TAG", "intent is not null");
                 UnityPlayer.UnitySendMessage("holder", "DealWithPhoto", fileWrapper.getFile().getAbsolutePath());
             }
-            //UnityPlayer.UnitySendMessage("holder", "DealWithPhoto", intent.getExtras().getString("CameraFilePath"));
-            //Log.d("THIS_TAG", intent.getExtras().getString("CameraFilePath"));
         }
         setResult(resultCode);
         finish();
