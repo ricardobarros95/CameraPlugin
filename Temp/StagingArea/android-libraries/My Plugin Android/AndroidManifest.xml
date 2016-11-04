@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cameraplugin.blacktorchstudios.camera_plugin"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="24" />
+
+    <uses-permission android:name="android.permission.CAMERA" >
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    </uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:label="Camera Plugin"
+        android:supportsRtl="true" >
+        <activity
+            android:name="cameraplugin.blacktorchstudios.camera_plugin.CameraActivity"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+            android:label="Camera Plugin"
+            android:noHistory="false" >
+        </activity>
+        <activity android:name="cameraplugin.blacktorchstudios.camera_plugin.IntermediateActivity" >
+            <intent-filter>
+                <action android:name="blacktorchstudios.IntermediateActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
