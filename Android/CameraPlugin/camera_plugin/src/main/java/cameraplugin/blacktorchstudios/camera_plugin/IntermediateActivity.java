@@ -23,34 +23,38 @@ public class IntermediateActivity extends Activity {
 
     public static final int CAMERA_REQUEST = 1888;
 
+    public String path;
     @Override
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
+
         launchCamera();
     }
 
-    private static FileWrapper createImageFile() throws IOException {
+    private static File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = UnityPlayer.currentActivity.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
-        String currentPhotoPath = "file:" + image.getAbsolutePath();
-        FileWrapper fileWrapper = new FileWrapper(currentPhotoPath, image);
-        return fileWrapper;
+        File im = null;
+        if(UnityPlayer.currentActivity == null){
+            Log.e("THAT_TAG", "Unity current Activity is null");
+        }
+        else{
+            File storageDir = UnityPlayer.currentActivity.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            im = new File(storageDir, imageFileName);
+            return im;
+        }
+        return im;
     }
 
     public void launchCamera(){
-        Log.d("THIS_TAG", "bananas are rich in potassium");
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File photoFile = null;
-        FileWrapper fw = null;
         try{
-            fw = createImageFile();
-            fileWrapper = fw;
-            photoFile = fw.getFile();
+            photoFile = createImageFile();
+            path = photoFile.getPath();
         }
         catch(IOException e){
-
+            Log.e("THAT_TAG", e.getMessage());
         }
         if(photoFile != null){
             Uri fa = Uri.fromFile(photoFile);
@@ -58,22 +62,20 @@ public class IntermediateActivity extends Activity {
             intent.putExtra("CameraFilePath", photoFile.getAbsolutePath());
             startActivityForResult(intent, CAMERA_REQUEST);
         }
-    }
-    FileWrapper fileWrapper = null;
+   }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent){
         super.onActivityResult(requestCode, resultCode, intent);
-        Log.d("THIS_TAG", "bananas are also a great source of Magnesium");
 
         if(requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK){
-            if(fileWrapper == null){
-                Log.d("THIS_TAG", "fileWrapper is null");
-            }else{
-                Log.d("THIS_TAG", "intent is not null");
-                UnityPlayer.UnitySendMessage("holder", "DealWithPhoto", fileWrapper.getFile().getAbsolutePath());
+            try{
+                UnityPlayer.UnitySendMessage("holder", "DealWithPhoto", path);
+            }catch(Exception e){
+                Log.e("THAT_TAG", e.getMessage());
             }
         }
+
         setResult(resultCode);
         finish();
     }

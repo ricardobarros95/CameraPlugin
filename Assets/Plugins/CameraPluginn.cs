@@ -7,10 +7,10 @@ using System;
 [RequireComponent(typeof(Image))]
 public class CameraPluginn : MonoBehaviour
 {
-
-    public Text t;
     public Image Picture { get; set; }
     public bool PictureReady { get; set; }
+
+    public Texture2D Texture { get; set; }
 
     public static void StartCamera()
     {
@@ -38,6 +38,7 @@ public class CameraPluginn : MonoBehaviour
             target.SetPixels32(pixels);
             target.Apply();
             Debug.Log("Rotate Picture: " + DateTime.Now.ToString());
+            Texture = target;
 
             Sprite s = Sprite.Create(target, new Rect(0, 0, target.width, target.height), new Vector2(0.5f, 0.5f));
             Picture = GetComponent<Image>();
@@ -48,7 +49,6 @@ public class CameraPluginn : MonoBehaviour
         else
         {
             Debug.LogError("File not found at path: " + message);
-            t.text = "Doesnt exist";
         }
     }
     public Color32[] rotateTextureGrid(Color32[] tex, int wid, int hi)

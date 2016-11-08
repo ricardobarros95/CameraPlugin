@@ -20,4 +20,8 @@ public class FileWrapper {
         this.path = path;
         this.file = file;
     }
+
+
+    public FileWrapper(){}
+
 }

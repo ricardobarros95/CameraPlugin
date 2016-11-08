@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraPlugin.CSharp.Plugins", "CameraPlugin.CSharp.Plugins.csproj", "{B4F0753C-D582-03A3-2E06-C85957D2D13A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraPlugin.CSharp", "CameraPlugin.CSharp.csproj", "{05AA495F-002A-68BD-6894-FF2321350F8E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraPlugin.CSharp.Editor", "CameraPlugin.CSharp.Editor.csproj", "{D9464174-DBF1-CDA2-7E97-D16466104BC0}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{B4F0753C-D582-03A3-2E06-C85957D2D13A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4F0753C-D582-03A3-2E06-C85957D2D13A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4F0753C-D582-03A3-2E06-C85957D2D13A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05AA495F-002A-68BD-6894-FF2321350F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05AA495F-002A-68BD-6894-FF2321350F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05AA495F-002A-68BD-6894-FF2321350F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05AA495F-002A-68BD-6894-FF2321350F8E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D9464174-DBF1-CDA2-7E97-D16466104BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9464174-DBF1-CDA2-7E97-D16466104BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9464174-DBF1-CDA2-7E97-D16466104BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU

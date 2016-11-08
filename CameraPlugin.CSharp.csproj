@@ -63,7 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CallNativeCode.cs" />
+    <ProjectReference Include="CameraPlugin.CSharp.Plugins.csproj">
+      <Project>{B4F0753C-D582-03A3-2E06-C85957D2D13A}</Project>
+      <Name>CameraPlugin.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\TakePicture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\AndroidManifest.xml" />
